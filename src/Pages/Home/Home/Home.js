@@ -5,11 +5,11 @@ import HomeProducts from "../HomeProducts/HomeProducts";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <HomeBanner></HomeBanner>
       <HomeProducts></HomeProducts>
       <CustomerReview></CustomerReview>
-    </div>
+    </>
   );
 };
 

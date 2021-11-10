@@ -5,9 +5,9 @@ import Home from "./Pages/Home/Home/Home";
 import NavigationBar from "./Shared/NavigationBar/NavigationBar";
 import Footer from "./Shared/Footer/Footer";
 import Login from "./Login/Login/Login";
-import DashBoard from "./Pages/DashBoard/DashBoard";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ExploreAllProduct from "./Pages/ExploreAllProduct/ExploreAllProduct";
+import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path="/dashboard">
           <DashBoard></DashBoard>
         </Route>
+
         <Route exact path="/productDetails/:productID">
           <ProductDetails></ProductDetails>
         </Route>

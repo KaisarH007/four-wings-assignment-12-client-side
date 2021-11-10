@@ -15,8 +15,12 @@ const HomeProduct = ({ product }) => {
           />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <Card.Text>${price}</Card.Text>
+            <Card.Text>
+              {description.split("").slice(0, 50).toString().replace(/,/g, "")}
+            </Card.Text>
+            <Card.Text>
+              <h4>${price}</h4>
+            </Card.Text>
             <Link to={`productDetails/${_id}`}>
               <Button variant className="button-bg text-white fw-bold">
                 Explore Details
