@@ -7,6 +7,7 @@ import Footer from "./Shared/Footer/Footer";
 import Login from "./Login/Login/Login";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import ExploreAllProduct from "./Pages/ExploreAllProduct/ExploreAllProduct";
 
 function App() {
   return (
@@ -22,11 +23,14 @@ function App() {
         <Route exact path="/login">
           <Login></Login>
         </Route>
-        <Route exact path="/dashboard">
+        <Route path="/dashboard">
           <DashBoard></DashBoard>
         </Route>
         <Route exact path="/productDetails/:productID">
           <ProductDetails></ProductDetails>
+        </Route>
+        <Route exact path="/exploreAllProduct">
+          <ExploreAllProduct></ExploreAllProduct>
         </Route>
       </Switch>
       <Footer></Footer>
