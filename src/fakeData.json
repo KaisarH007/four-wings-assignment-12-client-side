@@ -1,0 +1,122 @@
+[
+  {
+    "key": "1",
+    "title": "U49WF FPV Camera Drone",
+    "photo": "https://i.ibb.co/02LfC6J/d-1.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "Altitude Hold, Headless Mode, Full Trim, and Real-Time WiFi FPV"
+    },
+    "description": "The U49WF FPV Camera Drone boasts altitude-hold and a first-person-view (FPV) screen with Camera Live Video, so you can see exactly what the HD camera of your drone sees in real-time.",
+    "price": 200
+  },
+  {
+    "key": "2",
+    "title": "Holy Stone HS270 2.7K Drone",
+    "photo": "https://i.ibb.co/TrDKBk6/d-2.jpg",
+    "spec": {
+      "camera": "2.7K",
+      "flight_time": "18 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The Holy Stone 2.7K GPS drone proves that you do not have to drop hundreds of dollars for a great starter drone. The 2.7k camera system features 5G image transmission, ensuring crisp pictures every time.",
+    "price": 300
+  },
+  {
+    "key": "3",
+    "title": "DJI Mavic Air 2",
+    "photo": "https://i.ibb.co/8r0DkFn/d-3.jpg",
+    "spec": {
+      "camera": "4K-60 fps",
+      "flight_time": "34 minutes (Per battery)",
+      "notable_attributes": " DJI Geofencing, 8K Hyperlapse, Return-to-Home, OcuSync 2.0, and APAS 3.0 obstacle avoidance."
+    },
+    "description": "DJI has done it again — the drone manufacturing juggernaut just released the Mavic Air 2, it is the first consumer drone to be equipped with AirSense. Which is essentially ADS-B In tech that enables the drone to pick up on nearby aircraft.",
+    "price": 400
+  },
+  {
+    "key": "4",
+    "title": "Skydio 2",
+    "photo": "https://i.ibb.co/yhVHBHs/d-4.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "Looking for Hollywood-style shots without complex equipment and high operating costs? Well, then the Skydio 2 is a drone that you should seriously consider. With an advanced 45-megapixel obstacle avoidance camera system",
+    "price": 450
+  },
+  {
+    "key": "5",
+    "title": "DJI FPV Drone",
+    "photo": "https://i.ibb.co/CtDVXP7/d-5.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The DJI FPV drone has created an entry point for FPV flying. It has also shaken up the more traditional offerings from DJI by allowing those who have never flown FPV before to dive right in without needing to build a custom drone or learn specialized piloting skills.",
+    "price": 250
+  },
+  {
+    "key": "6",
+    "title": "Autel Evo II Series",
+    "photo": "https://i.ibb.co/Lk0CMfS/d-6.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "With a price point starting just under $1500, the newly released Autel Evo II Series  is a serious contender in the increasingly competitive foldable drone segment. The Autel Evo II Drones pack some serious hardware under their bright orange shells.s",
+    "price": 600
+  },
+  {
+    "key": "7",
+    "title": "DJI Mavic 2 Zoom",
+    "photo": "https://i.ibb.co/tmw3Hnm/d-7.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The Mavic 2 Zoom introduces brand new zooming capabilities. The 24mm – 48mm zoom lens offers 2x optical zoom and 2x digital zoom, giving photographers and filmmakers more flexibility when it comes to framing their shots.",
+    "price": 550
+  },
+  {
+    "key": "8",
+    "title": "DJI Mavic 2 Pro",
+    "photo": "https://i.ibb.co/9tFCz7V/d-8.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The DJI Mavic 2 Pro is one of the most popular drone models on the market because of its compact size and a large array of intelligent features. With a professional-grade camera from Swedish camera manufacturer Hasselblad",
+    "price": 400
+  },
+  {
+    "key": "9",
+    "title": "DJI Phantom 4 Pro V2.0",
+    "photo": "https://i.ibb.co/wdRNSPj/d-9.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The DJI Phantom series drones are some of the most capable and recognizable drones on the market. The Phantom 1 was a revolutionary aircraft that put DJI and prosumer drones on the map. The Phantom 4 Pro V2.0 has collectively built on the series success",
+    "price": 300
+  },
+  {
+    "key": "10",
+    "title": "U49WF FPV Camera Drone",
+    "photo": "https://i.ibb.co/02LfC6J/d-1.jpg",
+    "spec": {
+      "camera": "720p HD",
+      "flight_time": "12-15 minutes (Per battery)",
+      "notable_attributes": "5G image transmission, GPS positioning system, foldable arms, intelligent flight modes."
+    },
+    "description": "The U49WF FPV Camera Drone boasts altitude-hold and a first-person-view (FPV) screen with Camera Live Video, so you can see exactly what the HD camera of your drone sees in real-time.",
+    "price": 200
+  }
+]
