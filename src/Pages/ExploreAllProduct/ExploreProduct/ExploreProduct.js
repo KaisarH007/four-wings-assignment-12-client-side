@@ -15,9 +15,7 @@ const ExploreProduct = ({ product }) => {
           />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text>
-              {description.split("").slice(0, 50).toString().replace(/,/g, "")}
-            </Card.Text>
+            <Card.Text>{description?.slice(0, 50)}</Card.Text>
             <Card.Text>
               <h4>${price}</h4>
             </Card.Text>

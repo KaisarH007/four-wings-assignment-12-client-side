@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Container, Modal } from "react-bootstrap";
+import { Alert, Button, Card, Container, Modal } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -20,13 +20,15 @@ const ProductDetails = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [orderSuccess, setOrderSuccess] = useState(false);
 
   //react hook forms
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.ordered = productInfo;
+    data.status = "pending";
     axios.post("http://localhost:7000/orders", data).then((res) => {
-      alert("Order Successfully Done");
+      setOrderSuccess(true);
       reset();
       handleClose();
       console.log(res);
@@ -36,7 +38,12 @@ const ProductDetails = () => {
 
   return (
     <Container className="my-5">
-      <h2>Deatls will update {productInfo._id}</h2>
+      {orderSuccess && (
+        <Alert variant="primary" className="text-center fs-4">
+          Thank You sir ! Your order receive successfully
+        </Alert>
+      )}
+
       <Card>
         <div className="row">
           <div className="col-md-6">
@@ -70,16 +77,14 @@ const ProductDetails = () => {
                   <Modal.Body>
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <input
-                        disabled
                         defaultValue={user?.displayName}
-                        {...register("customerName")}
+                        {...register("name")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />
                       <input
-                        disabled
                         defaultValue={user?.email}
-                        {...register("customerEmail")}
+                        {...register("email")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />
@@ -93,13 +98,6 @@ const ProductDetails = () => {
                       <input
                         placeholder="Address(optional)"
                         {...register("address")}
-                        className="w-100 mb-2 p-2"
-                      />
-                      <br />
-                      <input
-                        disabled
-                        defaultValue="Pending"
-                        {...register("status")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />

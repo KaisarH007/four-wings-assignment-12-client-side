@@ -10,6 +10,7 @@ const Register = () => {
 
   const history = useHistory();
 
+  const userPhoto = "https://i.ibb.co/SnkhYc9/user-removebg-preview.png";
   const handleGoogleLogIn = () => {
     signInWithGoogle().then((result) => {});
   };
@@ -35,7 +36,8 @@ const Register = () => {
       loginData?.email,
       loginData?.name,
       loginData?.password,
-      history
+      history,
+      userPhoto
     );
   };
 

@@ -37,25 +37,35 @@ const NavigationBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end  fs-5 fw-bold">
-            <Nav.Link className="text-white" as={Link} to="/home">
-              Home
+            <Nav.Link className="text-white" as={Link} to="/exploreAllProduct">
+              Explore
             </Nav.Link>
 
-            <Nav.Link className="text-white" as={Link} to="/dashboard">
-              DashBoard
-            </Nav.Link>
+            {user?.email && (
+              <Nav.Link className="text-white" as={Link} to="/dashboard">
+                DashBoard
+              </Nav.Link>
+            )}
 
             {!user?.email && (
               <Nav.Link className="text-white" as={Link} to="/login">
                 Login
               </Nav.Link>
             )}
+
+            <h6 className="text-white ms-2">
+              <img
+                style={{ width: "50px", clipPath: "circle()" }}
+                src={user?.photoURL}
+                alt=""
+              />
+              {user?.displayName}
+            </h6>
             {user?.email && (
               <Button className="ms-4" variant="danger" onClick={logOut}>
                 Log Out
               </Button>
             )}
-            <h6 className="text-white ms-2">{user?.displayName}</h6>
           </Navbar.Collapse>
         </Container>
       </Navbar>

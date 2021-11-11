@@ -1,0 +1,22 @@
+.add-review {
+  height: 100%;
+}
+
+.add-review form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add-review input,
+textarea {
+  width: 80%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ff681a;
+  border-radius: 5px;
+}
+.title-styel {
+  font-size: 30px;
+  font-weight: 900;
+}

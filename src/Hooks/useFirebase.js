@@ -28,15 +28,20 @@ const useFirebase = () => {
     });
   };
 
-  const registerUser = (email, name, password, history) => {
+  const registerUser = (email, name, password, history, userPhoto) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const newUser = { email: email, displayName: name };
+        const newUser = {
+          email: email,
+          displayName: name,
+          photoURL: userPhoto,
+        };
         setUser(newUser);
 
         updateProfile(auth.currentUser, {
           displayName: name,
+          photoURL: userPhoto,
         })
           .then(() => {})
           .catch((error) => {});

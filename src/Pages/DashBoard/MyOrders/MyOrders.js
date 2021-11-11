@@ -1,9 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Card, Col, Row, Button } from "react-bootstrap";
+import useAuth from "../../../Hooks/useAuth";
 
 const MyOrders = () => {
+  const { user } = useAuth();
+  const [myOrders, setMyOrders] = useState([]);
+  const url = `http://localhost:7000/myOrders?email=${user.email}`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMyOrders(data));
+  }, []);
   return (
-    <div>
-      <h2>My Orders</h2>
+    <div className="container">
+      {/* <div className="d-flex align-items-center justify-content-center title-styel">
+        <div>
+          <h1 className="text-center">
+            Your Total Order
+            <span className="text-danger">0{myOrders.length}</span>
+          </h1>
+        </div>
+      </div> */}
+      <Row xs={1} md={3} className="g-2 my-2">
+        {myOrders.map((myOrder) => (
+          <Col>
+            <Card>
+              <Card.Img
+                variant="top"
+                style={{ height: "190px" }}
+                src={myOrder?.ordered?.photo}
+              />
+              <Card.Body>
+                <Card.Title className="">{myOrder?.ordered?.title}</Card.Title>
+
+                <Card.Text>
+                  <p>
+                    <small>Price: </small>
+                    {myOrder?.ordered?.price}
+                  </p>
+                </Card.Text>
+
+                <Button
+                  // onClick={() => handleDeleteOrder(myOrders?._id)}
+                  className="fw-bold"
+                  variant="danger"
+                >
+                  Cancel
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 };
