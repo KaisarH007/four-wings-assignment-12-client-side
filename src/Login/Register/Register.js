@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Alert, Button, Spinner } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
   const { signInWithGoogle, registerUser, authError, user, isLoading } =
     useAuth();
   const [loginData, setLoginData] = useState();
+
+  const history = useHistory();
 
   const handleGoogleLogIn = () => {
     signInWithGoogle().then((result) => {});
@@ -19,7 +21,7 @@ const Register = () => {
     newLoginData[field] = value;
     setLoginData(newLoginData);
   };
-  // console.log(loginData);
+  console.log(loginData);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,12 @@ const Register = () => {
       return handleOnSubmit;
     }
 
-    registerUser(loginData?.email, loginData?.password);
+    registerUser(
+      loginData?.email,
+      loginData?.name,
+      loginData?.password,
+      history
+    );
   };
 
   return (
@@ -53,12 +60,21 @@ const Register = () => {
                     <form onSubmit={handleOnSubmit}>
                       <input
                         onChange={handleOnChange}
+                        type="text"
+                        name="name"
+                        id="userName"
+                        placeholder="Name"
+                        className="mb-2 p-2 rounded-2 w-100"
+                      />{" "}
+                      <br />
+                      <input
+                        onChange={handleOnChange}
                         type="email"
                         name="email"
                         id="userEmail"
                         placeholder="Email"
                         className="mb-2 p-2 rounded-2 w-100"
-                      />{" "}
+                      />
                       <br />
                       <input
                         onChange={handleOnChange}

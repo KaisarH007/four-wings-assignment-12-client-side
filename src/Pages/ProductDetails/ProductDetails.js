@@ -3,9 +3,11 @@ import { Button, Card, Container, Modal } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
 const ProductDetails = () => {
   const { productID } = useParams();
   const [productInfo, setProductInfo] = useState({});
+  const { user } = useAuth();
   //Load Product from DB
   useEffect(() => {
     fetch(`http://localhost:7000/productInfo/${productID}`)
@@ -68,24 +70,34 @@ const ProductDetails = () => {
                   <Modal.Body>
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <input
-                        defaultValue="Name"
+                        disabled
+                        defaultValue={user?.displayName}
                         {...register("customerName")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />
                       <input
-                        defaultValue="Email"
+                        disabled
+                        defaultValue={user?.email}
                         {...register("customerEmail")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />
                       <input
-                        defaultValue="Phone"
-                        {...register("Phone")}
+                        required
+                        placeholder="Phone number *"
+                        {...register("phone")}
                         className="w-100 mb-2 p-2"
                       />
                       <br />
                       <input
+                        placeholder="Address(optional)"
+                        {...register("address")}
+                        className="w-100 mb-2 p-2"
+                      />
+                      <br />
+                      <input
+                        disabled
                         defaultValue="Pending"
                         {...register("status")}
                         className="w-100 mb-2 p-2"
