@@ -8,34 +8,42 @@ import Login from "./Login/Login/Login";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ExploreAllProduct from "./Pages/ExploreAllProduct/ExploreAllProduct";
 import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
+import AuthProvider from "./AuthProvider/AuthProvider";
+import PrivateRoute from "./Private/PrivateRoute";
+import Register from "./Login/Register/Register";
 
 function App() {
   return (
-    <Router>
-      <NavigationBar></NavigationBar>
-      <Switch>
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-        <Route exact path="/home">
-          <Home></Home>
-        </Route>
-        <Route exact path="/login">
-          <Login></Login>
-        </Route>
-        <Route path="/dashboard">
-          <DashBoard></DashBoard>
-        </Route>
+    <AuthProvider>
+      <Router>
+        <NavigationBar></NavigationBar>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route exact path="/home">
+            <Home></Home>
+          </Route>
+          <Route exact path="/login">
+            <Login></Login>
+          </Route>
+          <Route exact path="/register">
+            <Register></Register>
+          </Route>
+          <Route path="/dashboard">
+            <DashBoard></DashBoard>
+          </Route>
 
-        <Route exact path="/productDetails/:productID">
-          <ProductDetails></ProductDetails>
-        </Route>
-        <Route exact path="/exploreAllProduct">
-          <ExploreAllProduct></ExploreAllProduct>
-        </Route>
-      </Switch>
-      <Footer></Footer>
-    </Router>
+          <PrivateRoute exact path="/productDetails/:productID">
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+          <Route exact path="/exploreAllProduct">
+            <ExploreAllProduct></ExploreAllProduct>
+          </Route>
+        </Switch>
+        <Footer></Footer>
+      </Router>
+    </AuthProvider>
   );
 }
 
