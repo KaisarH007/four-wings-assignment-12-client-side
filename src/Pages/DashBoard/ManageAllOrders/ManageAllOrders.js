@@ -19,7 +19,6 @@ const ManageAllOrders = () => {
               <th>#</th>
               <th>Product Name</th>
               <th>Product price</th>
-              <th>Product ID</th>
               <th>Status</th>
               <th>Delete</th>
             </tr>
@@ -30,7 +29,7 @@ const ManageAllOrders = () => {
                 <td>1</td>
                 <td>{orders?.ordered?.title}</td>
                 <td>{orders?.ordered?.price}</td>
-                <td>{orders?.ordered?._id}</td>
+
                 <td>{orders?.status}</td>
                 <td>
                   <Button

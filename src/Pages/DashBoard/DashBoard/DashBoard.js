@@ -10,6 +10,27 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Payment from "../Payment/Payment";
 import useAuth from "../../../Hooks/useAuth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faShoppingBasket,
+  faStar,
+  faMoneyBill,
+  faTasks,
+  faPlusCircle,
+  faUserShield,
+  faSignOutAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
+const homeIcon = <FontAwesomeIcon icon={faHome} />;
+const shoppingIcon = <FontAwesomeIcon icon={faShoppingBasket} />;
+const ratingIcon = <FontAwesomeIcon icon={faStar} />;
+const paymentIcon = <FontAwesomeIcon icon={faMoneyBill} />;
+const manageIcon = <FontAwesomeIcon icon={faTasks} />;
+const plusIcon = <FontAwesomeIcon icon={faPlusCircle} />;
+const adminIcon = <FontAwesomeIcon icon={faUserShield} />;
+const logIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
+
 const DashBoard = () => {
   const { logOut, user } = useAuth();
   let { path, url } = useRouteMatch();
@@ -30,74 +51,96 @@ const DashBoard = () => {
               <h4> {user?.displayName}</h4>
             </div>
           </div>
-          <li>
-            <Link style={{ textDecoration: "none", color: "white" }} to="/home">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/myOrders`}
-            >
-              My Orders
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/reviews`}
-            >
-              Give Review
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/payment`}
-            >
-              Payment
-            </Link>
-          </li>
-          <li>
-            {" "}
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/manageAllProducts`}
-            >
-              Manage All Products
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/manageAllOrders`}
-            >
-              Manage All Orders
-            </Link>
-          </li>
+          <div className="d-flex align-item-center justify-content-center mt-4">
+            <div>
+              <h6 className="mb-3">
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to="/home"
+                >
+                  {homeIcon} Home
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={`${url}/myOrders`}
+                >
+                  {shoppingIcon} My Orders
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={`${url}/reviews`}
+                >
+                  {ratingIcon} Give Review
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={`${url}/payment`}
+                >
+                  {paymentIcon} Payment
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                {" "}
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={`${url}/manageAllProducts`}
+                >
+                  {manageIcon} Manage All Products
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to={`${url}/manageAllOrders`}
+                >
+                  {manageIcon} Manage All Orders
+                </Link>
+              </h6>
 
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/addProducts`}
-            >
-              Add Products
-            </Link>
-          </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none", color: "white" }}
-              to={`${url}/makeAdmin`}
-            >
-              Make Admin
-            </Link>
-          </li>
-          <Button className="ms-4" variant="danger" onClick={logOut}>
-            Log Out
-          </Button>
+              <h6 className="mb-3">
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to={`${url}/addProducts`}
+                >
+                  {plusIcon} Add Products
+                </Link>
+              </h6>
+              <h6 className="mb-3">
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to={`${url}/makeAdmin`}
+                >
+                  {adminIcon} Make Admin
+                </Link>
+              </h6>
+              <Button className="my-4" variant="danger" onClick={logOut}>
+                {logIcon} Log Out
+              </Button>
+            </div>
+          </div>
         </Col>
-        <Col xs={12} md={10} className="">
+        <Col xs={12} md={9} className="">
           <h1>Dashboard</h1>
 
           <Switch>
