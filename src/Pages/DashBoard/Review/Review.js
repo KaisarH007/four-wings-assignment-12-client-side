@@ -11,10 +11,12 @@ const Review = () => {
   const onSubmit = (data) => {
     data.photo = "https://i.ibb.co/SnkhYc9/user-removebg-preview.png";
     data.photo2 = user?.photoURL;
-    axios.post("http://localhost:7000/addReviews", data).then((res) => {
-      alert("Successfully Added successfully");
-      reset();
-    });
+    axios
+      .post("https://quiet-retreat-21565.herokuapp.com/addReviews", data)
+      .then((res) => {
+        alert("Successfully Added successfully");
+        reset();
+      });
     console.log(data);
   };
 

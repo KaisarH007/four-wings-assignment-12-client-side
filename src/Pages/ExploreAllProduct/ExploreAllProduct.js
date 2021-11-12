@@ -7,7 +7,7 @@ import ExploreProduct from "./ExploreProduct/ExploreProduct";
 const ExploreAllProduct = () => {
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:7000/exploreAllProducts")
+    fetch("https://quiet-retreat-21565.herokuapp.com/exploreAllProducts")
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);

@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const { user } = useAuth();
   //Load Product from DB
   useEffect(() => {
-    fetch(`http://localhost:7000/productInfo/${productID}`)
+    fetch(`https://quiet-retreat-21565.herokuapp.com/productInfo/${productID}`)
       .then((res) => res.json())
       .then((data) => setProductInfo(data));
   }, []);
@@ -29,12 +29,14 @@ const ProductDetails = () => {
   const onSubmit = (data) => {
     data.ordered = productInfo;
     data.status = "pending";
-    axios.post("http://localhost:7000/orders", data).then((res) => {
-      setOrderSuccess(true);
-      reset();
-      handleClose();
-      console.log(res);
-    });
+    axios
+      .post("https://quiet-retreat-21565.herokuapp.com/orders", data)
+      .then((res) => {
+        setOrderSuccess(true);
+        reset();
+        handleClose();
+        console.log(res);
+      });
     console.log(data);
   };
 

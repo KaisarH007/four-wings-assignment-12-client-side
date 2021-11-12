@@ -94,12 +94,16 @@ const useFirebase = () => {
 
   const saveRegisteredUser = (email, name) => {
     const user = { email: email, displayName: name };
-    axios.post("http://localhost:7000/users", user).then((res) => {});
+    axios
+      .post("https://quiet-retreat-21565.herokuapp.com/users", user)
+      .then((res) => {});
   };
 
   const saveGoogleLoginUser = (email, name) => {
     const user = { email: email, displayName: name };
-    axios.put("http://localhost:7000/users", user).then((res) => {});
+    axios
+      .put("https://quiet-retreat-21565.herokuapp.com/users", user)
+      .then((res) => {});
   };
 
   return {

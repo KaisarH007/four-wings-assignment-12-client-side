@@ -5,7 +5,7 @@ const ManageAllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7000/exploreAllProducts")
+    fetch("https://quiet-retreat-21565.herokuapp.com/exploreAllProducts")
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);
@@ -13,7 +13,7 @@ const ManageAllProducts = () => {
   const handleDeleteProducts = (id) => {
     const response = window.confirm("Do You Want To DELETE This Product");
     if (response) {
-      const url = `http://localhost:7000/product/${id}`;
+      const url = `https://quiet-retreat-21565.herokuapp.com/product/${id}`;
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())
         .then((data) => {

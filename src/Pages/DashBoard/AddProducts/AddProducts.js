@@ -5,10 +5,12 @@ import "./AddProducts.css";
 const AddProducts = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:7000/addProducts", data).then((res) => {
-      alert("Successfully Added New Product");
-      reset();
-    });
+    axios
+      .post("https://quiet-retreat-21565.herokuapp.com/addProducts", data)
+      .then((res) => {
+        alert("Successfully Added New Product");
+        reset();
+      });
     console.log(data);
   };
   return (
