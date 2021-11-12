@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import useAuth from "../../Hooks/useAuth";
+import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
+import Footer from "../../Shared/Footer/Footer";
 const ProductDetails = () => {
   const { productID } = useParams();
   const [productInfo, setProductInfo] = useState({});
@@ -37,86 +39,90 @@ const ProductDetails = () => {
   };
 
   return (
-    <Container className="my-5">
-      {orderSuccess && (
-        <Alert variant="primary" className="text-center fs-4">
-          Thank You sir ! Your order receive successfully
-        </Alert>
-      )}
+    <>
+      <NavigationBar></NavigationBar>
+      <Container className="my-5">
+        {orderSuccess && (
+          <Alert variant="primary" className="text-center fs-4">
+            Thank You sir ! Your order receive successfully
+          </Alert>
+        )}
 
-      <Card>
-        <div className="row">
-          <div className="col-md-6">
-            <Card.Img
-              variant="top"
-              style={{ width: "100%", height: "300px" }}
-              src={photo}
-            />
+        <Card>
+          <div className="row">
+            <div className="col-md-6">
+              <Card.Img
+                variant="top"
+                style={{ width: "100%", height: "300px" }}
+                src={photo}
+              />
+            </div>
+            <div className="col md-6">
+              <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>{description}</Card.Text>
+                <Card.Text>
+                  {" "}
+                  <h6> &bull; Camera {spec?.camera}</h6>
+                  <h6> &bull; Flight Time {spec?.flight_time}</h6>
+                  <h6> &bull; Flight Time {spec?.notable_attributes}</h6>
+                  <h5> Price ${price}</h5>
+                </Card.Text>
+                {/* Modal  */}
+                <>
+                  <Button variant="primary" onClick={handleShow}>
+                    Order Now
+                  </Button>
+
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>{title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                          defaultValue={user?.displayName}
+                          {...register("name")}
+                          className="w-100 mb-2 p-2"
+                        />
+                        <br />
+                        <input
+                          defaultValue={user?.email}
+                          {...register("email")}
+                          className="w-100 mb-2 p-2"
+                        />
+                        <br />
+                        <input
+                          required
+                          placeholder="Phone number *"
+                          {...register("phone")}
+                          className="w-100 mb-2 p-2"
+                        />
+                        <br />
+                        <input
+                          placeholder="Address(optional)"
+                          {...register("address")}
+                          className="w-100 mb-2 p-2"
+                        />
+                        <br />
+
+                        <br />
+                        <input
+                          className="btn bg-primary text-white"
+                          type="submit"
+                          value="CONFIRM"
+                        />
+                      </form>
+                    </Modal.Body>
+                  </Modal>
+                </>
+              </Card.Body>
+            </div>
           </div>
-          <div className="col md-6">
-            <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Card.Text>{description}</Card.Text>
-              <Card.Text>
-                {" "}
-                <h6> &bull; Camera {spec?.camera}</h6>
-                <h6> &bull; Flight Time {spec?.flight_time}</h6>
-                <h6> &bull; Flight Time {spec?.notable_attributes}</h6>
-                <h5> Price ${price}</h5>
-              </Card.Text>
-              {/* Modal  */}
-              <>
-                <Button variant="primary" onClick={handleShow}>
-                  Order Now
-                </Button>
-
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>{title}</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <input
-                        defaultValue={user?.displayName}
-                        {...register("name")}
-                        className="w-100 mb-2 p-2"
-                      />
-                      <br />
-                      <input
-                        defaultValue={user?.email}
-                        {...register("email")}
-                        className="w-100 mb-2 p-2"
-                      />
-                      <br />
-                      <input
-                        required
-                        placeholder="Phone number *"
-                        {...register("phone")}
-                        className="w-100 mb-2 p-2"
-                      />
-                      <br />
-                      <input
-                        placeholder="Address(optional)"
-                        {...register("address")}
-                        className="w-100 mb-2 p-2"
-                      />
-                      <br />
-
-                      <br />
-                      <input
-                        className="btn bg-primary text-white"
-                        type="submit"
-                        value="CONFIRM"
-                      />
-                    </form>
-                  </Modal.Body>
-                </Modal>
-              </>
-            </Card.Body>
-          </div>
-        </div>
-      </Card>
-    </Container>
+        </Card>
+      </Container>
+      <Footer></Footer>
+    </>
   );
 };
 

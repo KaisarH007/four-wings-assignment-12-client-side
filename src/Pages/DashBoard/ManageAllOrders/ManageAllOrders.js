@@ -3,11 +3,30 @@ import { Button, Table } from "react-bootstrap";
 
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:7000/orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
+
+  const handleDeleteOrder = (id) => {
+    const response = window.confirm("Do You Want DELETE?");
+    if (response) {
+      const url = `http://localhost:7000/orders/${id}`;
+      fetch(url, { method: "DELETE" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            const remainingOrders = allOrders.filter(
+              (remainOrder) => remainOrder._id !== id
+            );
+            setAllOrders(remainingOrders);
+          }
+        });
+    }
+  };
+
   return (
     <div className="container">
       <h2>Manage All Orders{allOrders.length} </h2>
@@ -26,14 +45,14 @@ const ManageAllOrders = () => {
           <tbody>
             {allOrders.map((orders) => (
               <tr>
-                <td>1</td>
+                <td>{allOrders.indexOf(orders)}</td>
                 <td>{orders?.ordered?.title}</td>
                 <td>{orders?.ordered?.price}</td>
 
                 <td>{orders?.status}</td>
                 <td>
                   <Button
-                    // onClick={() => handleDeleteOrder(myOrders?._id)}
+                    onClick={() => handleDeleteOrder(orders?._id)}
                     className="fw-bold"
                     variant="danger"
                   >

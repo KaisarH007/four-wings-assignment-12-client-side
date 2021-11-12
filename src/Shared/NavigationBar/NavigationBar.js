@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 // import useAuth from "../../../Hooks/useAuth";
-// import logo from "../../../images/travel-logo.png";
+import logo from "../../Images/drone-logo-2.png";
 import "./NavigationBar.css";
 
 const NavigationBar = () => {
@@ -21,18 +21,21 @@ const NavigationBar = () => {
         className="nav-bg"
         collapseOnSelect
         expand="lg"
-        variant="dark"
+        variant="primary"
         sticky="top"
       >
         <Container>
           <Navbar.Brand>
-            <Nav.Link className="text-white d-flex" as={Link} to="/home">
-              {/* <img
-                  style={{ width: "70px", height: "60px" }}
-                  src={logo}
-                  alt=""
-                /> */}
-              <h4 className="fw-bold mt-3"> FOUR WINGS </h4>
+            <Nav.Link className=" d-flex" as={Link} to="/home">
+              <img
+                style={{ width: "50px", height: "50px" }}
+                src={logo}
+                alt=""
+              />
+              <h4 className="fw-bold mt-2 ms-2 text-white">
+                {" "}
+                <span className="text-info">FOUR</span> WINGS{" "}
+              </h4>
             </Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle />
@@ -53,14 +56,14 @@ const NavigationBar = () => {
               </Nav.Link>
             )}
 
-            <h6 className="text-white ms-2">
+            {/* <h6 className="text-white ms-2">
               <img
                 style={{ width: "50px", clipPath: "circle()" }}
                 src={user?.photoURL}
                 alt=""
               />
               {user?.displayName}
-            </h6>
+            </h6> */}
             {user?.email && (
               <Button className="ms-4" variant="danger" onClick={logOut}>
                 Log Out

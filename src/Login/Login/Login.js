@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
-import { Link, NavLink, useHistory, useLocation } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-
+import logo from "../../Images/Google__G__Logo.svg.png";
 const Login = () => {
   const { signInWithGoogle, user, loginUser, authError } = useAuth();
   const [loginData, setLoginData] = useState();
@@ -25,14 +25,14 @@ const Login = () => {
     e.preventDefault();
     loginUser(loginData?.email, loginData?.password, location, history);
   };
-  console.log(user.email);
+
   return (
     <div>
       <div className=" text-white my-4">
         <div className="container">
           <div className="row">
             <div className="col-md-12 d-flex align-items-center justify-content-center">
-              <div className="card shadow-lg bg-primary p-4 home-bg">
+              <div className="card shadow-lg nav-bg p-4 ">
                 <div className=" text-center ">
                   <h3 className="mb-4">Please Login </h3>
                   <form onSubmit={handleOnSubmit}>
@@ -70,14 +70,14 @@ const Login = () => {
                   <NavLink className="text-white " to="/register">
                     <p>New User? Please register</p>
                   </NavLink>
-                  <h4>---- or ----</h4>
+                  <h4>-------------------------</h4>
                   <Button
                     className="w-100 fw-bold"
                     onClick={handleGoogleLogIn}
                     variant="dark"
                   >
-                    <img style={{ width: "30px" }} src="" alt="" /> Sign In With
-                    Google Account
+                    <img style={{ width: "30px" }} src={logo} alt="" /> Sign In
+                    With Google Account
                   </Button>
                 </div>
               </div>

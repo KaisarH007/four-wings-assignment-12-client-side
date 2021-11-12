@@ -16,7 +16,6 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <NavigationBar></NavigationBar>
         <Switch>
           <Route exact path="/">
             <Home></Home>
@@ -41,7 +40,6 @@ function App() {
             <ExploreAllProduct></ExploreAllProduct>
           </Route>
         </Switch>
-        <Footer></Footer>
       </Router>
     </AuthProvider>
   );

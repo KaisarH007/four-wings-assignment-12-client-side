@@ -11,16 +11,34 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, []);
+
+  const handleDeleteOrder = (id) => {
+    const response = window.confirm("Do You Want Cancel This Order?");
+    if (response) {
+      const url = `http://localhost:7000/orders/${id}`;
+      fetch(url, { method: "DELETE" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            const remainingOrders = myOrders.filter(
+              (remainOrder) => remainOrder._id !== id
+            );
+            setMyOrders(remainingOrders);
+          }
+        });
+    }
+  };
+
   return (
     <div className="container">
-      {/* <div className="d-flex align-items-center justify-content-center title-styel">
+      <div className="d-flex align-items-center justify-content-center title-styel">
         <div>
           <h1 className="text-center">
             Your Total Order
-            <span className="text-danger">0{myOrders.length}</span>
+            <span className="text-danger"> 0{myOrders.length}</span>
           </h1>
         </div>
-      </div> */}
+      </div>
       <Row xs={1} md={3} className="g-2 my-2">
         {myOrders.map((myOrder) => (
           <Col>
@@ -39,9 +57,15 @@ const MyOrders = () => {
                     {myOrder?.ordered?.price}
                   </p>
                 </Card.Text>
+                <Card.Text>
+                  <p>
+                    <small>Order Status: </small>
+                    <span className="text-primary">{myOrder?.status}</span>
+                  </p>
+                </Card.Text>
 
                 <Button
-                  // onClick={() => handleDeleteOrder(myOrders?._id)}
+                  onClick={() => handleDeleteOrder(myOrder?._id)}
                   className="fw-bold"
                   variant="danger"
                 >

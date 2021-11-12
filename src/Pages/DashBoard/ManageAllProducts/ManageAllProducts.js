@@ -10,6 +10,23 @@ const ManageAllProducts = () => {
       .then((data) => setAllProducts(data));
   }, []);
 
+  const handleDeleteProducts = (id) => {
+    const response = window.confirm("Do You Want To DELETE This Product");
+    if (response) {
+      const url = `http://localhost:7000/product/${id}`;
+      fetch(url, { method: "DELETE" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            const remainProducts = allProducts.filter(
+              (remainProduct) => remainProduct._id !== id
+            );
+            setAllProducts(remainProducts);
+          }
+        });
+    }
+  };
+
   return (
     <div>
       <h2>Manage All Products{allProducts.length} </h2>
@@ -33,7 +50,7 @@ const ManageAllProducts = () => {
                   <td>
                     {" "}
                     <Button
-                      // onClick={() => handleDeleteOrder(myOrders?._id)}
+                      onClick={() => handleDeleteProducts(products?._id)}
                       className="fw-bold"
                       variant="danger"
                     >

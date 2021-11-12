@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -23,6 +24,9 @@ const useFirebase = () => {
 
   const signInWithGoogle = (location, history) => {
     signInWithPopup(auth, googleProvider).then((result) => {
+      const user = result.user;
+      console.log(user);
+      saveGoogleLoginUser(user.email, user.displayName);
       const destination = location?.state?.from || "/";
       history.replace(destination);
     });
@@ -38,6 +42,7 @@ const useFirebase = () => {
           photoURL: userPhoto,
         };
         setUser(newUser);
+        saveRegisteredUser(email, name);
 
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -86,6 +91,17 @@ const useFirebase = () => {
       setUser({});
     });
   };
+
+  const saveRegisteredUser = (email, name) => {
+    const user = { email: email, displayName: name };
+    axios.post("http://localhost:7000/users", user).then((res) => {});
+  };
+
+  const saveGoogleLoginUser = (email, name) => {
+    const user = { email: email, displayName: name };
+    axios.put("http://localhost:7000/users", user).then((res) => {});
+  };
+
   return {
     user,
     signInWithGoogle,

@@ -12,7 +12,7 @@ const AddProducts = () => {
     console.log(data);
   };
   return (
-    <div className="add-service mb-5">
+    <div className="add-service  mb-5">
       <div className="d-flex align-items-center justify-content-center title-styel">
         <div>
           <h1 className="title-styel text-center">Add New Products</h1>

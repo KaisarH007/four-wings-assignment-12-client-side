@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Alert, Button, Spinner } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-
+import logo from "../../Images/Google__G__Logo.svg.png";
 const Register = () => {
   const { signInWithGoogle, registerUser, authError, user, isLoading } =
     useAuth();
   const [loginData, setLoginData] = useState();
 
   const history = useHistory();
-
+  const location = useLocation();
   const userPhoto = "https://i.ibb.co/SnkhYc9/user-removebg-preview.png";
   const handleGoogleLogIn = () => {
-    signInWithGoogle().then((result) => {});
+    signInWithGoogle(location, history);
   };
 
   const handleOnChange = (e) => {
@@ -55,7 +55,7 @@ const Register = () => {
           )}
           <div className="row">
             <div className="col-md-12 d-flex align-items-center justify-content-center">
-              <div className="card shadow-lg bg-primary p-4 home-bg">
+              <div className="card shadow-lg nav-bg p-4 home-bg">
                 <div className=" text-center ">
                   <h3 className="mb-4">Please Register </h3>
                   {!isLoading && (
@@ -120,8 +120,8 @@ const Register = () => {
                     onClick={handleGoogleLogIn}
                     variant="dark"
                   >
-                    <img style={{ width: "30px" }} src="" alt="" /> Sign In With
-                    Google Account
+                    <img style={{ width: "30px" }} src={logo} alt="" /> Sign In
+                    With Google Account
                   </Button>
                 </div>
               </div>
