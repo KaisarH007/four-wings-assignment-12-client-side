@@ -29,8 +29,11 @@ const ManageAllOrders = () => {
 
   return (
     <div className="container">
-      <h2>Manage All Orders{allOrders.length} </h2>
-
+      <div className="d-flex align-items-center text-info justify-content-center ">
+        <div>
+          <h2>Total Orders {allOrders.length} </h2>
+        </div>
+      </div>
       <div>
         <Table striped bordered hover size="sm">
           <thead>

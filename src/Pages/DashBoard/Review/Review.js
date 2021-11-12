@@ -22,12 +22,11 @@ const Review = () => {
 
   return (
     <div>
-      <h2>Customer Review</h2>
       <div className="add-review mb-5">
-        <div className="d-flex align-items-center justify-content-center title-styel">
+        <div className="d-flex align-items-center text-info justify-content-center ">
           <div>
-            <h1 className="title-styel text-center">
-              Give A Review on Our Service
+            <h1 className="text-center">
+              Give A Review on Our Service/Products
             </h1>
           </div>
         </div>
@@ -39,6 +38,7 @@ const Review = () => {
           />
           <input {...register("email")} defaultValue={user.email} required />
           <textarea {...register("comments")} placeholder="Comments" required />
+
           <input
             type="number"
             min="1"

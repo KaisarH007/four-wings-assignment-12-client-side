@@ -30,15 +30,15 @@ const paymentIcon = <FontAwesomeIcon icon={faMoneyBill} />;
 const manageIcon = <FontAwesomeIcon icon={faTasks} />;
 const plusIcon = <FontAwesomeIcon icon={faPlusCircle} />;
 const adminIcon = <FontAwesomeIcon icon={faUserShield} />;
-const logIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
+const logOutIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
 
 const DashBoard = () => {
   const { logOut, user } = useAuth();
   let { path, url } = useRouteMatch();
   return (
     <>
-      <div className="mx-o">
-        <Row className="dashboard-container g-0">
+      <div>
+        <Row style={{ height: "100vh" }} className="dashboard-container g-0">
           <Col xs={12} md={2} className="nav-bg">
             <div className=" text-white mt-2 d-flex align-item-center justify-content-center">
               <div>
@@ -136,14 +136,23 @@ const DashBoard = () => {
                     {adminIcon} Make Admin
                   </Link>
                 </h6>
-                <Button className="my-4" variant="danger" onClick={logOut}>
-                  {logIcon} Log Out
-                </Button>
+                <h5
+                  className="my-4 text-white fw-bold pointer-style"
+                  onClick={logOut}
+                >
+                  {logOutIcon} Log Out
+                </h5>
               </div>
             </div>
           </Col>
-          <Col xs={12} md={9} className="">
-            <h1>Dashboard</h1>
+          <Col xs={12} md={9} className="mt-5">
+            {/* <div className="d-flex align-items-center bg-info justify-content-center ">
+              <div>
+                <h1 className="text-center">
+                  <span className="text-white"> Dashboard</span>
+                </h1>
+              </div>
+            </div> */}
 
             <Switch>
               <Route exact path={path}>
@@ -174,7 +183,7 @@ const DashBoard = () => {
           </Col>
         </Row>
       </div>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </>
   );
 };

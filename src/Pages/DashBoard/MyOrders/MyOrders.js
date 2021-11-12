@@ -31,7 +31,7 @@ const MyOrders = () => {
 
   return (
     <div className="container">
-      <div className="d-flex align-items-center justify-content-center title-styel">
+      <div className="d-flex align-items-center text-info justify-content-center ">
         <div>
           <h1 className="text-center">
             Your Total Order

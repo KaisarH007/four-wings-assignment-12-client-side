@@ -3,6 +3,8 @@ import { Alert, Button } from "react-bootstrap";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/Google__G__Logo.svg.png";
+import Footer from "../../Shared/Footer/Footer";
+import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 const Login = () => {
   const { signInWithGoogle, user, loginUser, authError } = useAuth();
   const [loginData, setLoginData] = useState();
@@ -27,7 +29,8 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <>
+      <NavigationBar></NavigationBar>
       <div className=" text-white my-4">
         <div className="container">
           <div className="row">
@@ -67,7 +70,11 @@ const Login = () => {
                     )}
                   </form>
                   <br />
-                  <NavLink className="text-white " to="/register">
+                  <NavLink
+                    style={{ textDecoration: "none" }}
+                    className="text-white "
+                    to="/register"
+                  >
                     <p>New User? Please register</p>
                   </NavLink>
                   <h4>-------------------------</h4>
@@ -85,7 +92,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

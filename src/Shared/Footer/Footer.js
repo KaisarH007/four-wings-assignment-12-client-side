@@ -3,8 +3,8 @@ import { Button, Form } from "react-bootstrap";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMailBulk } from "@fortawesome/free-solid-svg-icons";
-// import logo from "../../../images/travel-logo.png";
-// import payphoto from "../../../images/payment-method.jpg";
+import logo from "../../Images/drone-logo-2.png";
+import payphoto from "../../Images/payment-method.jpg";
 const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
 const mailIcon = <FontAwesomeIcon icon={faMailBulk} />;
 
@@ -13,30 +13,25 @@ const Footer = () => {
     <div className="footer-bg text-white">
       <div className="container">
         <div className="row p-4">
-          <div className="col-md-4">
+          <div className="col-md-3">
             <h3>
               {" "}
-              {/* <img style={{ width: "100px" }} src={logo} alt="" /> Dreamy */}
-              FOUR WINGS
+              <img style={{ width: "60px" }} src={logo} alt="" />
+              <span className="text-info">FOUR</span> WINGS
             </h3>
-            <p className="">
-              Travel takes us out of our comfort zones and inspires us to see,
-              taste and try new things. It constantly challenges us, not only to
-              adapt to and explore new surroundings.
-            </p>
-            <small>{phoneIcon} +92555666333</small> <br />
-            <small>{mailIcon} dreamy_travelsy@gmail.com</small> <br />
+            <small>{phoneIcon} +920000333</small> <br />
+            <small>{mailIcon} four_wings@gmail.net</small> <br />
           </div>
           <div className="col-md-4 text-center">
-            {/* <img
+            <img
               className="rounded"
               style={{ width: "100%" }}
               src={payphoto}
               alt=""
-            /> */}
+            />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-5">
             <h4 className="text-center">Subscrib</h4>
             <Form>
               <Form.Group
@@ -46,13 +41,13 @@ const Footer = () => {
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />
               </Form.Group>
-              <Form.Group
+              {/* <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Your Suggestion or Feedback</Form.Label>
                 <Form.Control as="textarea" rows={3} />
-              </Form.Group>
+              </Form.Group> */}
             </Form>
             <Button className="p-2 btn  ">Submit</Button>
             <p>
@@ -65,7 +60,7 @@ const Footer = () => {
       </div>
       <hr />
       <div className="text-center  p-2">
-        <p>&copy; 2021 Dreamy Travels. All rights reserved</p>
+        <p>&copy; 2021 FOUR WINGS. All rights reserved</p>
       </div>
     </div>
   );

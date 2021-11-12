@@ -72,7 +72,7 @@ const ProductDetails = () => {
                 </Card.Text>
                 {/* Modal  */}
                 <>
-                  <Button variant="primary" onClick={handleShow}>
+                  <Button className=" bg-info" onClick={handleShow}>
                     Order Now
                   </Button>
 
@@ -110,7 +110,7 @@ const ProductDetails = () => {
 
                         <br />
                         <input
-                          className="btn bg-primary text-white"
+                          className="btn bg-info text-white"
                           type="submit"
                           value="CONFIRM"
                         />

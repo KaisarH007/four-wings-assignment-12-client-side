@@ -1,6 +1,5 @@
 import React from "react";
 import { Carousel, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import banner1 from "../../../Images/banners/d-banner-1.jpg";
 import banner2 from "../../../Images/banners/d-banner-2.jpg";
 import banner3 from "../../../Images/banners/d-banner-3.jpg";
@@ -19,11 +18,6 @@ const HomeBanner = () => {
           <Carousel.Caption>
             <h3>Welcome to Four Wings</h3>
             <p>World Number one Drone Website</p>
-            <Link to="/exploreAllProduct">
-              <Button variant className="button-bg text-white fw-bold">
-                Explore More Products
-              </Button>
-            </Link>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -36,11 +30,6 @@ const HomeBanner = () => {
           <Carousel.Caption>
             <h3>Welcome to Four Wings</h3>
             <p>World Number one Drone Website</p>
-            <Link to="/exploreAllProduct">
-              <Button variant className="button-bg text-white fw-bold">
-                Explore More Products
-              </Button>
-            </Link>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -53,11 +42,6 @@ const HomeBanner = () => {
           <Carousel.Caption>
             <h3>Welcome to Four Wings</h3>
             <p>World Number one Drone Website</p>
-            <Link to="/exploreAllProduct">
-              <Button variant className="button-bg text-white fw-bold">
-                Explore More Products
-              </Button>
-            </Link>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -70,11 +54,6 @@ const HomeBanner = () => {
           <Carousel.Caption>
             <h3>Welcome to Four Wings</h3>
             <p>World Number one Drone Website</p>
-            <Link to="/exploreAllProduct">
-              <Button variant className="button-bg text-white fw-bold">
-                Explore More Products
-              </Button>
-            </Link>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

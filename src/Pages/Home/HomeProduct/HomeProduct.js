@@ -10,7 +10,7 @@ const HomeProduct = ({ product }) => {
         <Card className="h-100 p-2">
           <Card.Img
             variant="top"
-            style={{ width: "100%", height: "200px" }}
+            style={{ width: "100%", height: "250px" }}
             src={photo}
           />
           <Card.Body>

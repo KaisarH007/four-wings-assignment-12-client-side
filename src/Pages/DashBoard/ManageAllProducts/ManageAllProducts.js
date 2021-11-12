@@ -29,22 +29,34 @@ const ManageAllProducts = () => {
 
   return (
     <div>
-      <h2>Manage All Products{allProducts.length} </h2>
-      <Row xs={12} md={12} className="g-2 my-2">
+      <div className="d-flex align-items-center text-info justify-content-center ">
+        <div>
+          <h2>Total Products {allProducts.length} </h2>
+        </div>
+      </div>
+      <Row xs={12} md={12} className="g-2 my-2 ">
         <Col>
-          <Table striped bordered hover variant="dark">
-            <thead>
+          <Table border className=" table align-middle table-info">
+            <thead className="text-center">
               <tr>
                 <th>#</th>
+                {/* <th>Photo</th> */}
                 <th>Product Title</th>
                 <th>Price</th>
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center align-items-center justify-content-center">
               {allProducts.map((products) => (
-                <tr>
+                <tr className="p-2">
                   <td>{allProducts.indexOf(products)}</td>
+                  {/* <td>
+                    <img
+                      style={{ width: "100px", height: "90px" }}
+                      src={products?.photo}
+                      alt=""
+                    />
+                  </td> */}
                   <td>{products?.title}</td>
                   <td>{products?.price}</td>
                   <td>

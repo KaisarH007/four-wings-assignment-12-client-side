@@ -15,9 +15,11 @@ const AddProducts = () => {
   };
   return (
     <div className="add-service  mb-5">
-      <div className="d-flex align-items-center justify-content-center title-styel">
+      <div className="d-flex align-items-center justify-content-center ">
         <div>
-          <h1 className="title-styel text-center">Add New Products</h1>
+          <h1 className="text-center">
+            <span className="text-info"> Add New Products</span>
+          </h1>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>

@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     const user = { adminEmail };
     console.log(user);
 
-    fetch("https://quiet-retreat-21565.herokuapp.com/user/admin", {
+    fetch("http://localhost:7000/user/admin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(user),
@@ -21,14 +21,10 @@ const MakeAdmin = () => {
   };
   return (
     <div>
-      <h2>Make Admin</h2>
-      <h2>Customer Review</h2>
       <div className="add-review mb-5">
-        <div className="d-flex align-items-center justify-content-center title-styel">
+        <div className="d-flex align-items-center justify-content-center ">
           <div>
-            <h1 className="title-styel text-center">
-              Give A Review on Our Service
-            </h1>
+            <h1 className=" text-center text-info">Make An Admin</h1>
           </div>
         </div>
         <form onSubmit={handleAdminSubmit}>

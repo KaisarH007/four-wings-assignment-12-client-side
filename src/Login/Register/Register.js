@@ -3,6 +3,8 @@ import { Alert, Button, Spinner } from "react-bootstrap";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../Images/Google__G__Logo.svg.png";
+import Footer from "../../Shared/Footer/Footer";
+import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 const Register = () => {
   const { signInWithGoogle, registerUser, authError, user, isLoading } =
     useAuth();
@@ -42,7 +44,8 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <>
+      <NavigationBar></NavigationBar>
       <div className=" text-white my-4">
         <div className="container">
           {isLoading && (
@@ -111,10 +114,14 @@ const Register = () => {
                     </form>
                   )}
                   <br />
-                  <NavLink className="text-white" to="/login">
+                  <NavLink
+                    style={{ textDecoration: "none" }}
+                    className="text-white"
+                    to="/login"
+                  >
                     <p>Already Register? Please Login</p>
                   </NavLink>
-                  <h4>---- or ----</h4>
+                  <h4>-----------------------------</h4>
                   <Button
                     className="w-100 fw-bold"
                     onClick={handleGoogleLogIn}
@@ -129,7 +136,8 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 

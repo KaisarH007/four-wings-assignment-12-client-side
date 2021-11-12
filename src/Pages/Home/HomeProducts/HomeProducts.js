@@ -11,7 +11,11 @@ const HomeProducts = () => {
   }, []);
   return (
     <Container>
-      <h2>Product will added soon...{products.length}</h2>
+      <div className="d-flex my-4 align-items-center text-info justify-content-center ">
+        <div>
+          <h1>Our Most Popular Items</h1>
+        </div>
+      </div>
       <Row xs={1} md={3} className="g-4">
         {products.map((product) => (
           <HomeProduct product={product} keys={product._id}></HomeProduct>
