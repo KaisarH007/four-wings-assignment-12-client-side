@@ -3,13 +3,13 @@ import { Button, Table } from "react-bootstrap";
 
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
-  const [status, setStatus] = useState("");
+  const [approved, setApproved] = useState(false);
 
   useEffect(() => {
     fetch("https://quiet-retreat-21565.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
-  }, []);
+  }, [approved]);
 
   const handleDeleteOrder = (id) => {
     const response = window.confirm("Do You Want DELETE?");
@@ -28,19 +28,23 @@ const ManageAllOrders = () => {
     }
   };
 
-  const handelStatusChange = (e) => {
-    setStatus(e.target.value);
-  };
-  console.log(status);
+  // const handelStatusChange = (e) => {
+  //   setStatus(e.target.value);
+  // };
+  // console.log(status);
   const handleApprove = (id) => {
     fetch(`http://localhost:7000/updateStatus/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ status }),
-    });
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-    console.log(id);
+      body: JSON.stringify({ status: "Approved" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setApproved(true);
+        }
+        console.log(data);
+      });
   };
 
   return (
@@ -73,7 +77,7 @@ const ManageAllOrders = () => {
                       width: "130px",
                       height: "90px",
                       borderRadius: "10px",
-                      boxShadow: "2px 2px 2px 1px rgba(250, 250, 250, 0.514)",
+                      boxShadow: "2px 2px 2px 1px rgba(51, 46, 46, 0.664)",
                     }}
                     src={orders?.ordered?.photo}
                     alt=""
@@ -81,14 +85,7 @@ const ManageAllOrders = () => {
                 </td>
                 <td>{orders?.ordered?.title}</td>
                 <td>{orders?.ordered?.price}</td>
-
-                <td>
-                  <input
-                    onChange={handelStatusChange}
-                    type="text"
-                    defaultValue={orders?.status}
-                  />{" "}
-                </td>
+                <td>{orders?.status}</td>
                 <td>
                   <Button
                     onClick={() => handleDeleteOrder(orders?._id)}
@@ -99,7 +96,7 @@ const ManageAllOrders = () => {
                   </Button>
                   <Button
                     onClick={() => handleApprove(orders?._id)}
-                    className="fw-bold"
+                    className="ms-2 fw-bold"
                     variant="primary"
                   >
                     Approved

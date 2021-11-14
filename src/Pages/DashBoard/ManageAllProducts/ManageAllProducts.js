@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button, Row, Col } from "react-bootstrap";
+import { Table, Button, Row, Col, Alert } from "react-bootstrap";
 
 const ManageAllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
-
+  const [success, setSuccess] = useState(false);
   useEffect(() => {
     fetch("https://quiet-retreat-21565.herokuapp.com/exploreAllProducts")
       .then((res) => res.json())
@@ -22,6 +22,7 @@ const ManageAllProducts = () => {
               (remainProduct) => remainProduct._id !== id
             );
             setAllProducts(remainProducts);
+            setSuccess(true);
           }
         });
     }
@@ -31,6 +32,11 @@ const ManageAllProducts = () => {
     <div>
       <div className="d-flex align-items-center text-info justify-content-center ">
         <div>
+          {success && (
+            <Alert variant="success" className="text-center fs-4">
+              Remove Product Successfully
+            </Alert>
+          )}
           <h2>Total Products {allProducts.length} </h2>
         </div>
       </div>
@@ -59,7 +65,7 @@ const ManageAllProducts = () => {
                         width: "130px",
                         height: "90px",
                         borderRadius: "10px",
-                        boxShadow: "2px 2px 2px 1px rgba(250, 250, 250, 0.514)",
+                        boxShadow: "2px 2px 2px 1px rgba(51, 46, 46, 0.664)",
                       }}
                       src={products?.photo}
                       alt=""

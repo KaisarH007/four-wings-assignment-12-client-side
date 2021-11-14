@@ -18,24 +18,30 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
+  const [admin, setAdmin] = useState(false);
+  const [allUser, setAllUser] = useState([]);
   const auth = getAuth();
 
   const googleProvider = new GoogleAuthProvider();
 
   const signInWithGoogle = (location, history) => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      const user = result.user;
-      console.log(user);
-      saveGoogleLoginUser(user.email, user.displayName);
-      const destination = location?.state?.from || "/";
-      history.replace(destination);
-    });
+    setIsLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        saveGoogleLoginUser(user.email, user.displayName);
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const registerUser = (email, name, password, history, userPhoto) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        setUser(userCredential.user); //m
         const newUser = {
           email: email,
           displayName: name,
@@ -64,6 +70,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        setUser(userCredential.user);
         // Signed in
         const destination = location?.state?.from || "/";
         history.replace(destination);
@@ -75,6 +82,7 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -85,6 +93,22 @@ const useFirebase = () => {
     });
     return () => unsubscribe;
   }, []);
+
+  useEffect(() => {
+    // setIsLoading(true);
+    fetch("http://localhost:7000/allUsers")
+      .then((res) => res.json())
+      .then((data) => setAllUser(data));
+
+    allUser.map((users) => {
+      if (users.email === user?.email && users.role === "admin") {
+        setAdmin(true);
+      }
+    });
+    // setIsLoading(false);
+  }, [user.email]);
+
+  console.log(admin);
 
   const logOut = () => {
     signOut(auth).then(() => {
@@ -108,6 +132,7 @@ const useFirebase = () => {
 
   return {
     user,
+    admin,
     signInWithGoogle,
     logOut,
     isLoading,

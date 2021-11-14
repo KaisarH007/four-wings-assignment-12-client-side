@@ -28,7 +28,7 @@ const ProductDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.ordered = productInfo;
-    data.status = "pending";
+    data.status = "Pending";
     axios
       .post("https://quiet-retreat-21565.herokuapp.com/orders", data)
       .then((res) => {

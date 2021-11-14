@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { Alert } from "react-bootstrap";
 
 const MakeAdmin = () => {
   const [adminEmail, setAdminEmail] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleOnBlur = (e) => {
     setAdminEmail(e.target.value);
   };
   const handleAdminSubmit = (e) => {
     const user = { email: adminEmail };
-    // console.log(user);
 
     fetch("http://localhost:7000/user/admin", {
       method: "PUT",
@@ -18,14 +19,17 @@ const MakeAdmin = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.matchedCount && !data.modifiedCount) {
-          alert("This Email Already An Admin");
+          setSuccess("Already An Admin");
+          setAdminEmail("");
         } else if (data.modifiedCount && data.matchedCount) {
-          alert("Make Admin successfully");
+          setSuccess("Admin successfully");
+          setAdminEmail("");
         } else if (!data.matchedCount) {
-          alert("This Email Not Registered User, Please Register First");
+          setSuccess("Not Registered");
+          setAdminEmail("");
         }
-        console.log(data);
       });
+
     e.preventDefault();
   };
   return (
@@ -33,6 +37,23 @@ const MakeAdmin = () => {
       <div className="add-review mb-5">
         <div className="d-flex align-items-center justify-content-center ">
           <div>
+            <div>
+              {success === "Admin successfully" && (
+                <Alert variant="success" className="text-center fs-4">
+                  Make Admin successfully
+                </Alert>
+              )}
+              {success === "Already An Admin" && (
+                <Alert variant="warning" className="text-center fs-4">
+                  This Email Already An Admin
+                </Alert>
+              )}
+              {success === "Not Registered" && (
+                <Alert variant="danger" className="text-center fs-4">
+                  This Email Not Registered User, Please Register First
+                </Alert>
+              )}
+            </div>
             <h1 className=" text-center text-info">Make An Admin</h1>
           </div>
         </div>

@@ -21,7 +21,7 @@ import {
   faUserShield,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../../../Shared/Footer/Footer";
+import AdminRoute from "../../../Login/AdminRoute/AdminRoute";
 
 const homeIcon = <FontAwesomeIcon icon={faHome} />;
 const shoppingIcon = <FontAwesomeIcon icon={faShoppingBasket} />;
@@ -33,11 +33,15 @@ const adminIcon = <FontAwesomeIcon icon={faUserShield} />;
 const logOutIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
 
 const DashBoard = () => {
-  const { logOut, user } = useAuth();
+  const { logOut, user, admin } = useAuth();
   let { path, url } = useRouteMatch();
   return (
     <>
       <div>
+        <div className=" text-white d-flex fw-bolder  align-item-center nav-bg m-0 justify-content-center">
+          <h1>Welcome To Dashboard</h1>
+        </div>
+        <hr className="m-0 p-1 " />
         <Row style={{ height: "100vh" }} className="dashboard-container g-0">
           <Col xs={12} md={3} className="nav-bg">
             <div className=" text-white mt-2 d-flex align-item-center justify-content-center">
@@ -66,76 +70,87 @@ const DashBoard = () => {
                     {homeIcon} Home
                   </Link>
                 </h6>
-                <h6 className="mb-3">
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                    }}
-                    to={`${url}/myOrders`}
-                  >
-                    {shoppingIcon} My Orders
-                  </Link>
-                </h6>
-                <h6 className="mb-3">
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                    }}
-                    to={`${url}/reviews`}
-                  >
-                    {ratingIcon} Give Review
-                  </Link>
-                </h6>
-                <h6 className="mb-3">
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                    }}
-                    to={`${url}/payment`}
-                  >
-                    {paymentIcon} Payment
-                  </Link>
-                </h6>
-                <h6 className="mb-3">
-                  {" "}
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                    }}
-                    to={`${url}/manageAllProducts`}
-                  >
-                    {manageIcon} Manage All Products
-                  </Link>
-                </h6>
-                <h6 className="mb-3">
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to={`${url}/manageAllOrders`}
-                  >
-                    {manageIcon} Manage All Orders
-                  </Link>
-                </h6>
 
-                <h6 className="mb-3">
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to={`${url}/addProducts`}
-                  >
-                    {plusIcon} Add Products
-                  </Link>
-                </h6>
-                <h6 className="mb-3">
-                  <Link
-                    style={{ textDecoration: "none", color: "white" }}
-                    to={`${url}/makeAdmin`}
-                  >
-                    {adminIcon} Make Admin
-                  </Link>
-                </h6>
+                {!admin && (
+                  <div>
+                    <h6 className="mb-3">
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                        to={`${url}/myOrders`}
+                      >
+                        {shoppingIcon} My Orders
+                      </Link>
+                    </h6>
+                    <h6 className="mb-3">
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                        to={`${url}/reviews`}
+                      >
+                        {ratingIcon} Give Review
+                      </Link>
+                    </h6>
+                    <h6 className="mb-3">
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                        to={`${url}/payment`}
+                      >
+                        {paymentIcon} Payment
+                      </Link>
+                    </h6>
+                  </div>
+                )}
+
+                {admin && (
+                  <div>
+                    <h6 className="mb-3">
+                      {" "}
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                        to={`${url}/manageAllProducts`}
+                      >
+                        {manageIcon} Manage All Products
+                      </Link>
+                    </h6>
+                    <h6 className="mb-3">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to={`${url}/manageAllOrders`}
+                      >
+                        {manageIcon} Manage All Orders
+                      </Link>
+                    </h6>
+
+                    <h6 className="mb-3">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to={`${url}/addProducts`}
+                      >
+                        {plusIcon} Add Products
+                      </Link>
+                    </h6>
+                    <h6 className="mb-3">
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to={`${url}/makeAdmin`}
+                      >
+                        {adminIcon} Make Admin
+                      </Link>
+                    </h6>
+                  </div>
+                )}
+
                 <h5
                   className="my-4 text-white fw-bold pointer-style"
                   onClick={logOut}
@@ -145,40 +160,32 @@ const DashBoard = () => {
               </div>
             </div>
           </Col>
-          <Col xs={12} md={8} className="mt-5">
-            {/* <div className="d-flex align-items-center bg-info justify-content-center ">
-              <div>
-                <h1 className="text-center">
-                  <span className="text-white"> Dashboard</span>
-                </h1>
-              </div>
-            </div> */}
-
+          <Col xs={12} md={8} className="mt-3">
             <Switch>
               <Route exact path={path}>
                 <MyOrders></MyOrders>
               </Route>
-              <Route exact path={`${path}/myOrders`}>
+              <Route path={`${path}/myOrders`}>
                 <MyOrders></MyOrders>
               </Route>
-              <Route exact path={`${path}/reviews`}>
+              <Route path={`${path}/reviews`}>
                 <Review></Review>
               </Route>
-              <Route exact path={`${path}/payment`}>
+              <Route path={`${path}/payment`}>
                 <Payment></Payment>
               </Route>
-              <Route exact path={`${path}/manageAllProducts`}>
+              <AdminRoute path={`${path}/manageAllProducts`}>
                 <ManageAllProducts></ManageAllProducts>
-              </Route>
-              <Route exact path={`${path}/manageAllOrders`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/manageAllOrders`}>
                 <ManageAllOrders></ManageAllOrders>
-              </Route>
-              <Route exact path={`${path}/addProducts`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/addProducts`}>
                 <AddProducts></AddProducts>
-              </Route>
-              <Route exact path={`${path}/makeAdmin`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
-              </Route>
+              </AdminRoute>
             </Switch>
           </Col>
         </Row>
