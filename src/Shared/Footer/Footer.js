@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
 
           <div className="col-md-5">
-            <h4 className="text-center">Subscrib</h4>
+            <h4 className="text-center">Subscribe Our NewsLetter</h4>
             <Form>
               <Form.Group
                 className="mb-3"

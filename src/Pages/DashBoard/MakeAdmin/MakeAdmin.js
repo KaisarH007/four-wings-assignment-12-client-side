@@ -7,8 +7,8 @@ const MakeAdmin = () => {
     setAdminEmail(e.target.value);
   };
   const handleAdminSubmit = (e) => {
-    const user = { adminEmail };
-    console.log(user);
+    const user = { email: adminEmail };
+    // console.log(user);
 
     fetch("http://localhost:7000/user/admin", {
       method: "PUT",
@@ -16,7 +16,16 @@ const MakeAdmin = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.matchedCount && !data.modifiedCount) {
+          alert("This Email Already An Admin");
+        } else if (data.modifiedCount && data.matchedCount) {
+          alert("Make Admin successfully");
+        } else if (!data.matchedCount) {
+          alert("This Email Not Registered User, Please Register First");
+        }
+        console.log(data);
+      });
     e.preventDefault();
   };
   return (

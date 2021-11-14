@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "./HomeProduct.css";
 const HomeProduct = ({ product }) => {
   const { photo, title, _id, description, price } = product;
   return (
     <>
       <Col>
-        <Card className="h-100 p-2">
+        <Card className="h-100 p-2 card-style">
           <Card.Img
             variant="top"
             style={{ width: "100%", height: "250px" }}

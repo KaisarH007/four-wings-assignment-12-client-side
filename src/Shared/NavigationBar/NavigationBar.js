@@ -15,7 +15,7 @@ import logo from "../../Images/drone-logo-2.png";
 import "./NavigationBar.css";
 import { faSignOutAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 const logOutIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
-const logIntIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
+const logIntIcon = <FontAwesomeIcon icon={faSignInAlt} />;
 const NavigationBar = () => {
   const { user, logOut } = useAuth();
   return (

@@ -36,30 +36,38 @@ const ManageAllProducts = () => {
       </div>
       <Row xs={12} md={12} className="g-2 my-2 ">
         <Col>
-          <Table border className=" table align-middle table-info">
+          <Table
+            border
+            className=" table table-bordered align-middle  text-white"
+          >
             <thead className="text-center">
-              <tr>
-                <th>#</th>
-                {/* <th>Photo</th> */}
+              <tr className="bg-info">
+                <th>SL</th>
+                <th>Photo</th>
                 <th>Product Title</th>
                 <th>Price</th>
-                <th>Delete</th>
+                <th>Action</th>
               </tr>
             </thead>
-            <tbody className="text-center align-items-center justify-content-center">
+            <tbody className="text-center ">
               {allProducts.map((products) => (
-                <tr className="p-2">
+                <tr keys={products._id} className="bg-info">
                   <td>{allProducts.indexOf(products)}</td>
-                  {/* <td>
+                  <td>
                     <img
-                      style={{ width: "100px", height: "90px" }}
+                      style={{
+                        width: "130px",
+                        height: "90px",
+                        borderRadius: "10px",
+                        boxShadow: "2px 2px 2px 1px rgba(250, 250, 250, 0.514)",
+                      }}
                       src={products?.photo}
                       alt=""
                     />
-                  </td> */}
+                  </td>
                   <td>{products?.title}</td>
                   <td>{products?.price}</td>
-                  <td>
+                  <td className="align-middle">
                     {" "}
                     <Button
                       onClick={() => handleDeleteProducts(products?._id)}

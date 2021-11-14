@@ -1,0 +1,9 @@
+.card-style {
+  box-shadow: 2px 2px 2px 1px rgba(3, 112, 126, 0.342);
+  border-radius: 10px;
+}
+
+.title-style {
+  color: #066e75;
+  font-weight: bolder;
+}

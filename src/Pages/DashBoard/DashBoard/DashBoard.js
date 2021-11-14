@@ -39,7 +39,7 @@ const DashBoard = () => {
     <>
       <div>
         <Row style={{ height: "100vh" }} className="dashboard-container g-0">
-          <Col xs={12} md={2} className="nav-bg">
+          <Col xs={12} md={3} className="nav-bg">
             <div className=" text-white mt-2 d-flex align-item-center justify-content-center">
               <div>
                 <img
@@ -145,7 +145,7 @@ const DashBoard = () => {
               </div>
             </div>
           </Col>
-          <Col xs={12} md={9} className="mt-5">
+          <Col xs={12} md={8} className="mt-5">
             {/* <div className="d-flex align-items-center bg-info justify-content-center ">
               <div>
                 <h1 className="text-center">

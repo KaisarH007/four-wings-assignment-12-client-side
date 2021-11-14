@@ -2,8 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home/Home";
-import NavigationBar from "./Shared/NavigationBar/NavigationBar";
-import Footer from "./Shared/Footer/Footer";
 import Login from "./Login/Login/Login";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ExploreAllProduct from "./Pages/ExploreAllProduct/ExploreAllProduct";

@@ -7,7 +7,7 @@ const ExploreProduct = ({ product }) => {
   return (
     <>
       <Col>
-        <Card className="h-100 p-2">
+        <Card className="h-100 p-2 card-style">
           <Card.Img
             variant="top"
             style={{ width: "100%", height: "250px" }}
