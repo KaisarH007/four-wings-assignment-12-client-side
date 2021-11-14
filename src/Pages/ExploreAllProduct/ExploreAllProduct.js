@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import Footer from "../../Shared/Footer/Footer";
 import NavigationBar from "../../Shared/NavigationBar/NavigationBar";
 import ExploreProduct from "./ExploreProduct/ExploreProduct";
@@ -14,6 +14,14 @@ const ExploreAllProduct = () => {
   return (
     <>
       <NavigationBar></NavigationBar>
+      {allProducts.length === 0 && (
+        <div
+          className=" d-flex align-items-center justify-content-center"
+          style={{ height: "500px" }}
+        >
+          <Spinner animation="border" className="title-color" />
+        </div>
+      )}
       <Container className="mb-5">
         <div className="d-flex my-4 align-items-center title-style justify-content-center ">
           <div>

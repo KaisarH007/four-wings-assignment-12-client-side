@@ -1,10 +1,11 @@
 import React from "react";
-import { Carousel, Button } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import banner1 from "../../../Images/banners/d-banner-1.jpg";
 import banner2 from "../../../Images/banners/d-banner-2.jpg";
 import banner3 from "../../../Images/banners/d-banner-3.jpg";
 import banner4 from "../../../Images/banners/d-banner-4.jpg";
 import banner5 from "../../../Images/banners/d-banner-5.jpg";
+import "./HomeBanner.css";
 const HomeBanner = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const HomeBanner = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 inner-img"
+            style={{ height: "350px" }}
             src={banner1}
             alt="First slide"
           />
@@ -22,6 +24,7 @@ const HomeBanner = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            style={{ height: "350px" }}
             className="d-block w-100 inner-img"
             src={banner2}
             alt="Second slide"
@@ -34,6 +37,7 @@ const HomeBanner = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            style={{ height: "350px" }}
             className="d-block w-100 inner-img"
             src={banner3}
             alt="Third slide"
@@ -46,6 +50,7 @@ const HomeBanner = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            style={{ height: "350px" }}
             className="d-block w-100 inner-img"
             src={banner4}
             alt="Third slide"
@@ -58,6 +63,7 @@ const HomeBanner = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
+            style={{ height: "350px" }}
             className="d-block w-100 inner-img"
             src={banner5}
             alt="Third slide"

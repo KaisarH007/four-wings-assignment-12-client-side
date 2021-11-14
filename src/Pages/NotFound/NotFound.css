@@ -1,0 +1,15 @@
+.not-found-bg {
+  width: 100%;
+  height: 500px;
+}
+
+.text-style {
+  color: #066e75;
+  border-bottom: 3px solid #066e75;
+  padding-bottom: 20px;
+}
+
+.text-style h1 {
+  font-weight: 900;
+  font-size: 180px;
+}
