@@ -6,7 +6,6 @@ import Login from "./Login/Login/Login";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ExploreAllProduct from "./Pages/ExploreAllProduct/ExploreAllProduct";
 import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
-import NotFound from "./Pages/NotFound/NotFound";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import PrivateRoute from "./Private/PrivateRoute";
 import Register from "./Login/Register/Register";
@@ -28,9 +27,7 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
+
           <PrivateRoute path="/dashboard">
             <DashBoard></DashBoard>
           </PrivateRoute>

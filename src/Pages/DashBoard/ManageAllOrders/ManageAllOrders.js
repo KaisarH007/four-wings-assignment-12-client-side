@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
   const handleDeleteOrder = (id) => {
     const response = window.confirm("Do You Want DELETE?");
     if (response) {
-      const url = `http://localhost:7000/orders/${id}`;
+      const url = `https://quiet-retreat-21565.herokuapp.com/orders/${id}`;
       fetch(url, { method: "DELETE" })
         .then((res) => res.json())
         .then((data) => {
@@ -33,7 +33,7 @@ const ManageAllOrders = () => {
   // };
   // console.log(status);
   const handleApprove = (id) => {
-    fetch(`http://localhost:7000/updateStatus/${id}`, {
+    fetch(`https://quiet-retreat-21565.herokuapp.com/updateStatus/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status: "Approved" }),

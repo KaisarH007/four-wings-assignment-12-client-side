@@ -96,7 +96,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     // setIsLoading(true);
-    fetch("http://localhost:7000/allUsers")
+    fetch("https://quiet-retreat-21565.herokuapp.com/allUsers")
       .then((res) => res.json())
       .then((data) => setAllUser(data));
 
