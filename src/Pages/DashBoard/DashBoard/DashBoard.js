@@ -22,6 +22,7 @@ import {
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import AdminRoute from "../../../Login/AdminRoute/AdminRoute";
+import DashBoardHome from "../DashboardHome/DashBoardHome";
 
 const homeIcon = <FontAwesomeIcon icon={faHome} />;
 const shoppingIcon = <FontAwesomeIcon icon={faShoppingBasket} />;
@@ -163,7 +164,7 @@ const DashBoard = () => {
           <Col xs={12} md={8} className="mt-3">
             <Switch>
               <Route exact path={path}>
-                <MyOrders></MyOrders>
+                <DashBoardHome></DashBoardHome>
               </Route>
               <Route path={`${path}/myOrders`}>
                 <MyOrders></MyOrders>
