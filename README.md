@@ -1,6 +1,6 @@
-# Welcome to my New Project For Wings
+# Welcome to my New MERN Stack Project For Wings
 
-This is MERN-stack Niche Web App [Live Preview](https://four-wings.web.app/).
+This is Drone Shop (Niche Web App) [Live Preview](https://four-wings.web.app/).
 
 ## This Project Feature
 
