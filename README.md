@@ -1,14 +1,14 @@
 # Welcome to my New Project For Wings
 
-This is MERN-stack Niche Web App [Live Preview](https://four-wings.web.app/
-
-).
+This is MERN-stack Niche Web App [Live Preview](https://four-wings.web.app/).
 
 ## This Project Feature
 
 - Built a MERN Stack Niche web app also Implemented of Admin and User Dashboard.
   Admin can manage all orders and products, add new product, make another user
-  admin, user can Manage her/his orders,can give a review.
+  admin,
+- User can Manage her/his orders,can give a review.
+- If User want purchase Product user need to sign up or register first.
 - Two Authentication Systems implemented with Firebase, user can sign up with
   Google account and register/create a new account by using email/password.
 - Transferred data from Heroku via CRUD operation to UI. This is full Mobile
